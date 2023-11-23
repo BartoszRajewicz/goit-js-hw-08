@@ -7,9 +7,12 @@ player.on(
   'timeupdate',
   throttle(event => {
     localStorage.setItem('videoplayer-current-time', event.seconds);
-  }, 1000));
+  }, 1000)
+);
 
 window.addEventListener('DOMContentLoaded', () => {
-    const time = localStorage.getItem('videoplayer-current-time');
+  const time = localStorage.getItem('videoplayer-current-time');
+  if (time != null) {
     player.setCurrentTime(time);
+  }
 });
